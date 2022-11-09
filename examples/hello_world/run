@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd "$(dirname "$0")"
+
+rm hello_world
+gcc main.c -o hello_world
+
+# TODO rewrite in bash with curl or something idk
+
+python3 -m http.server & \
+    python3 ../../stager.py "http://localhost:8000/hello_world"
